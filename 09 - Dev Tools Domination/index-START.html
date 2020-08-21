@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Console Tricks!</title>
 </head>
+
 <body>
 
   <p onClick="makeGreen()">×BREAK×DOWN×</p>
@@ -18,29 +20,59 @@
     }
 
     // Regular
+    console.log('hello');
 
     // Interpolated
+    console.log('Hello I am a %s string!', 'POOP');
 
     // Styled
+    console.log('%c I am some great text', 'font-size:50px;');
 
     // warning!
+    console.warn('OH NOOO');
 
     // Error :|
+    console.error('shit!');
 
     // Info
+    console.info('crocodiles eat 3-4 people per year')
 
     // Testing
+    const p = document.querySelector('p')
+    console.assert(p.classList.contains('ouch'), 'That is wrong!')
+    console.assert(1 === 2, 'You did not select the right element!');
 
     // clearing
+    // console.clear()
 
     // Viewing DOM Elements
+    console.log(p);
+    console.dir(p) //allows you to open it up and look at the class list // all the properties and methods that live on that element
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`) // or use groupCollapsed() to display the collapsed info for readability
+      console.log(`This is ${dog.name} `);
+      console.log(`${dog.name} is ${dog.age} years old`)
+    })
 
-    // counting
+    // counting // tells you how many instances of something
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
+    console.count('Wes');
 
-    // timing
+    // timing // how long something takes
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data')
+        console.log(data);
+      });
 
+    console.table(dogs) // assuming the all have the same properties
   </script>
 </body>
+
 </html>
